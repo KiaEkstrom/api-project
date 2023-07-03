@@ -10,6 +10,7 @@
 	document.getElementById("må-btn").addEventListener("click", loadMå);
 	document.getElementById("goa-btn").addEventListener("click", loadGoA);
 	
+	
 	// Functions for the first band button, Blind Channel:
 
 function loadBC() {
