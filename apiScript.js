@@ -67,7 +67,47 @@ function tracksBC() {
 	// Functions for the album infos	
 
 function albumsBC() {
-	var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=371f424b6c0bb12311c906a6da34260a&artist=Blind+Channel&album=Violent+Pop&format=json";
+	var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=371f424b6c0bb12311c906a6da34260a&artist=Blind+Channel&album=Lifestyles+of+the+Sick+%26+Dangerous&format=json";
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
+
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {		
+			var obj = JSON.parse(xmlhttp.responseText); 
+			
+			var show = "<table>";
+			// heading rows
+				show += "<tr>";
+					show += "<th width='25%'>" + obj.album.name + "</th>"; 
+					show += "<th width='25%'>" + obj.album.playcount + " streams" + "</th>";  
+					show += "<th>" + "Song list" + "</th>";
+				show += "</tr>";
+				show += "<tr>";
+					show += "<td rowspan='12'><img src='https://lastfm.freetls.fastly.net/i/u/174s/445fe85515ab1be7368b8c1f721ec51c.jpg' </td>"; 
+				show += "</tr>";
+				
+			// loop for displaying the songs of the album
+				for (var i = 0; i < obj.album.tracks.track.length; i++) {					
+					show += "<tr>";
+						show += "<td>" + "" + "</td>";
+						show += "<td>" + obj.album.tracks.track[i].name + "</td>";   
+					show += "</tr>";
+				}
+				
+			show += "</table>";
+			document.getElementById("album_1").innerHTML = show;
+		}						
+	}
+																						
+	// calling for other albums and their info
+	bcAlbum2();
+	bcAlbum3();
+	bcAlbum4();
+}
+
+function bcAlbum2() {
+    var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=371f424b6c0bb12311c906a6da34260a&artist=Blind+Channel&album=Violent+Pop&format=json";
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
@@ -96,15 +136,12 @@ function albumsBC() {
 				}
 				
 			show += "</table>";
-			document.getElementById("album_1").innerHTML = show;
-		}																												
+			document.getElementById("album_2").innerHTML = show;
+		}						
 	}
-	// calling for other albums and their info
-	bcAlbum2();
-	bcAlbum3();
 }
 
-function bcAlbum2() {
+function bcAlbum3() {
 	var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=371f424b6c0bb12311c906a6da34260a&artist=Blind+Channel&album=Blood+Brothers&format=json";
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open("GET", url, true);
@@ -134,12 +171,12 @@ function bcAlbum2() {
 				}
 				
 			show += "</table>";
-			document.getElementById("album_2").innerHTML = show;
+			document.getElementById("album_3").innerHTML = show;
 		}																												
 	}
 }
 
-function bcAlbum3() {
+function bcAlbum4() {
 	var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=371f424b6c0bb12311c906a6da34260a&artist=Blind+Channel&album=Revolutions&format=json";
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open("GET", url, true);
@@ -169,7 +206,7 @@ function bcAlbum3() {
 				}
 				
 			show += "</table>";
-			document.getElementById("album_3").innerHTML = show;
+			document.getElementById("album_4").innerHTML = show;
 		}																												
 	}
 }
@@ -232,7 +269,47 @@ function tracksMå() {
 	// Functions for the album infos
 
 function albumsMå() {
-	var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=371f424b6c0bb12311c906a6da34260a&artist=Måneskin&album=Teatro+D'Ira+-+Vol.I&format=json";
+	var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=371f424b6c0bb12311c906a6da34260a&artist=Måneskin&album=RUSH!&format=json";
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
+	
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {		
+			var obj = JSON.parse(xmlhttp.responseText); 
+
+				var show = "<table>";
+				// heading rows
+				show += "<tr>";
+					show += "<th width='25%'>" + obj.album.name + "</th>"; 
+					show += "<th width='25%'>" + obj.album.playcount + " streams" + "</th>";  
+					show += "<th>" + "Song list" + "</th>";
+				show += "</tr>";
+				show += "<tr>";
+					show += "<td rowspan='12'><img src='https://lastfm.freetls.fastly.net/i/u/174s/7b9a7459af674f9f0726df055bccf13d.jpg' </td>"; 
+				show += "</tr>";
+				
+				//loop for displaying the songs of the album
+				for (var i = 0; i < obj.album.tracks.track.length; i++) {					
+					show += "<tr>";
+						show += "<td>" + "" + "</td>";
+						show += "<td>" + obj.album.tracks.track[i].name + "</td>";   
+					show += "</tr>";
+				}
+				
+			show += "</table>";
+			document.getElementById("album_1").innerHTML = show;
+		}																												
+	}
+	
+	// calling for other albums and their info
+	måAlbum2();
+	måAlbum3();
+	måAlbum4();
+}
+
+function måAlbum2() {
+	var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=371f424b6c0bb12311c906a6da34260a&artist=Måneskin&album=Teatro+d'ira+-+Vol.+I&format=json";
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
@@ -261,16 +338,12 @@ function albumsMå() {
 				}
 				
 			show += "</table>";
-			document.getElementById("album_1").innerHTML = show;
+			document.getElementById("album_2").innerHTML = show;
 		}																												
 	}
-	
-	// calling for other albums and their info
-	måAlbum2();
-	måAlbum3();
 }
 
-function måAlbum2() {
+function måAlbum3() {
 	var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=371f424b6c0bb12311c906a6da34260a&artist=Måneskin&album=Il+ballo+della+vita&format=json";
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open("GET", url, true);
@@ -300,12 +373,12 @@ function måAlbum2() {
 				}
 				
 			show += "</table>";
-			document.getElementById("album_2").innerHTML = show;
+			document.getElementById("album_3").innerHTML = show;
 		}																												
 	}
 }
 	
-function måAlbum3() {
+function måAlbum4() {
 	var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=371f424b6c0bb12311c906a6da34260a&artist=Måneskin&album=Chosen&format=json";
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open("GET", url, true);
@@ -335,7 +408,7 @@ function måAlbum3() {
 				}
 				
 			show += "</table>";
-			document.getElementById("album_3").innerHTML = show;
+			document.getElementById("album_4").innerHTML = show;
 		}																												
 	}
 }
@@ -425,8 +498,9 @@ function albumsGoA() {
 				
 			show += "</table>";
 			document.getElementById("album_1").innerHTML = show;
-			document.getElementById("album_2").innerHTML = "No second album to show!";
-			document.getElementById("album_3").innerHTML = "No third album to show!";
+			document.getElementById("album_2").innerHTML = "No other albums to show!";
+			document.getElementById("album_3").style.display = "none";
+			document.getElementById("album_4").style.display = "none";
 		} 	
 	}
 }
