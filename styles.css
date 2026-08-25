@@ -41,7 +41,14 @@ p {
 	font-size: 20px;
 }
 
-
+/*
+#bigPicture {
+	width: 70%;
+	margin: auto;
+	display: block;
+	padding-top: 20px;
+}
+	*/
 
 /* Styling for the clickable band image buttons */
 
@@ -56,11 +63,12 @@ button:hover {
 }
 
 #band-img {
-    max-width: 100%;
+    width: 230px;
     height: 230px;
 	border-radius: 50%;
+	object-fit: cover;
+	/*object-position: center;*/
 	background-color: #F5F5F5;
-	width: 250px;
 	border: none;
 	cursor: pointer;
 	padding: 20px;
@@ -68,10 +76,20 @@ button:hover {
     margin: 25px;
 }
 
+/* Styling for the big picture of the band
+
+#bigPicture {
+	width: 70%;
+	object-fit: cover;
+	object-position: center;
+	margin-left: auto;
+	margin-right: auto;
+
+}*/
 
 /* Styling for info fields */
 
-#info, #album_1, #album_2, #album_3, #album_4 {
+#info, #album_1, #album_2, #album_3, #album_4, #album_5 {
 	background-color: white;
 	text-align: center;
 }
@@ -80,6 +98,7 @@ button:hover {
 	width: 50%;
 	border: none;
 	background-color: white;
+	text-align: center;
 }
 
 #info {
@@ -96,8 +115,17 @@ table {
 
 th {
 	text-align: center;
+	padding-bottom: 5px;
 }
 
+td {
+	vertical-align: top;
+}
+
+.track-item {
+    display: inline-block;
+    margin-bottom: 5px; /* Säätää tyhjää tilaa kappaleiden väliin! */
+}
 
 /* Specific colors for tracks table per band */
 
