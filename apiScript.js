@@ -256,9 +256,15 @@ function tracksMå() {
 				
 			// loop for displaying all 10 songs
 				for (var i = 0; i < obj.toptracks.track.length; i++) {
+
+					// uusi rivi alla
+					var formattedPlaycount = Number(obj.toptracks.track[i].playcount).toLocaleString('en-US');
+
 					show += "<tr>";
 						show += "<td>" + obj.toptracks.track[i].name + "</td>";  
-						show += "<td id='right'>" + obj.toptracks.track[i].playcount + "</td>";
+						// show += "<td id='right'>" + obj.toptracks.track[i].playcount + "</td>";
+						// uusi rivi alla
+						show += "<td>" + formattedPlaycount + "</td>";
 					show += "</tr>";
 				}
 				
