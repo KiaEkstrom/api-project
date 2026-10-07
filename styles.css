@@ -72,8 +72,13 @@ button:hover {
 	border: none;
 	cursor: pointer;
 	padding: 20px;
-	display: block;
+	display: flex;
     margin: 25px;
+}
+
+#band_images {
+	display: flex;
+	justify-content: center;
 }
 
 /* Styling for the big picture of the band
